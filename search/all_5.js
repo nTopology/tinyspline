@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pimpl',['pImpl',['../structts_b_spline.html#a1d53f626a8205931b738db3d3bf8a551',1,'tsBSpline::pImpl()'],['../structts_de_boor_net.html#a6a26191ef769dd63a13bd41f65d1f57a',1,'tsDeBoorNet::pImpl()']]]
+  ['n_5fctrlp',['n_ctrlp',['../structts_b_spline_impl.html#aeffa54439b829a986617d4fcaf21d542',1,'tsBSplineImpl']]],
+  ['n_5fknots',['n_knots',['../structts_b_spline_impl.html#abb0f674e5f453bd66f1e7b794cdb769a',1,'tsBSplineImpl']]]
 ];

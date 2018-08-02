@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['n_5fctrlp',['n_ctrlp',['../structts_b_spline_impl.html#aeffa54439b829a986617d4fcaf21d542',1,'tsBSplineImpl']]],
-  ['n_5fknots',['n_knots',['../structts_b_spline_impl.html#abb0f674e5f453bd66f1e7b794cdb769a',1,'tsBSplineImpl']]]
+  ['k',['k',['../structts_de_boor_net_impl.html#a9efd97cc9a336b2d145a3c9cb2330bed',1,'tsDeBoorNetImpl']]]
 ];

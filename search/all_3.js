@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['k',['k',['../structts_de_boor_net_impl.html#a9efd97cc9a336b2d145a3c9cb2330bed',1,'tsDeBoorNetImpl']]]
+  ['json_5farray_5ft',['json_array_t',['../structjson__array__t.html',1,'']]],
+  ['json_5fobject_5ft',['json_object_t',['../structjson__object__t.html',1,'']]],
+  ['json_5fvalue_5ft',['json_value_t',['../structjson__value__t.html',1,'']]],
+  ['json_5fvalue_5fvalue',['json_value_value',['../unionjson__value__value.html',1,'']]]
 ];

@@ -159,7 +159,9 @@ Enumerations</h2></td></tr>
 <b>TS_NUM_KNOTS</b> = -7, 
 <br />
 &#160;&#160;<b>TS_UNDERIVABLE</b> = -8, 
-<b>TS_LCTRLP_DIM_MISMATCH</b> = -10
+<b>TS_LCTRLP_DIM_MISMATCH</b> = -10, 
+<b>TS_IO_ERROR</b> = -11, 
+<b>TS_PARSE_ERROR</b> = -12
 <br />
  }</td></tr>
 <tr class="separator:a565ff3761d90530714283629d1850e9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -260,6 +262,14 @@ Functions</h2></td></tr>
 <tr class="separator:a81669bc634b4d870496f835ba530545f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6c51a67e74d453fc66ec940ab466967"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinyspline_8h.html#ad6c51a67e74d453fc66ec940ab466967">ts_bspline_to_beziers</a> (const <a class="el" href="structts_b_spline.html">tsBSpline</a> *spline, <a class="el" href="structts_b_spline.html">tsBSpline</a> *_beziers_)</td></tr>
 <tr class="separator:ad6c51a67e74d453fc66ec940ab466967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac66c6815cf6a996f22cecbd5c69dc977"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinyspline_8h.html#ac66c6815cf6a996f22cecbd5c69dc977">ts_bspline_to_json</a> (const <a class="el" href="structts_b_spline.html">tsBSpline</a> *spline, char **_json_)</td></tr>
+<tr class="separator:ac66c6815cf6a996f22cecbd5c69dc977"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c8c20a177bfc0afbda209f6ab51f92b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinyspline_8h.html#a5c8c20a177bfc0afbda209f6ab51f92b">ts_bspline_from_json</a> (const char *json, <a class="el" href="structts_b_spline.html">tsBSpline</a> *_spline_)</td></tr>
+<tr class="separator:a5c8c20a177bfc0afbda209f6ab51f92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3509c0e1085738f158bac364bbe5b4fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinyspline_8h.html#a3509c0e1085738f158bac364bbe5b4fa">ts_bspline_save_json</a> (const <a class="el" href="structts_b_spline.html">tsBSpline</a> *spline, const char *path)</td></tr>
+<tr class="separator:a3509c0e1085738f158bac364bbe5b4fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0df50da2946f3d0f35e5eb29d4a982dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinyspline_8h.html#a0df50da2946f3d0f35e5eb29d4a982dd">ts_bspline_load_json</a> (const char *path, <a class="el" href="structts_b_spline.html">tsBSpline</a> *_spline_)</td></tr>
+<tr class="separator:a0df50da2946f3d0f35e5eb29d4a982dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9f0e1a305d27413b486a498ab1ca0e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinyspline_8h.html#aa9f0e1a305d27413b486a498ab1ca0e6">ts_fequals</a> (tsReal x, tsReal y)</td></tr>
 <tr class="separator:aa9f0e1a305d27413b486a498ab1ca0e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7da30fbf5cc8b891f4f2cbfcee7966d3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tinyspline_8h.html#a7da30fbf5cc8b891f4f2cbfcee7966d3">ts_enum_str</a> (<a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a> err)</td></tr>
@@ -690,6 +700,57 @@ TS_MALLOC If allocating memory failed. </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a5c8c20a177bfc0afbda209f6ab51f92b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a> ts_bspline_from_json </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>json</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structts_b_spline.html">tsBSpline</a> *&#160;</td>
+          <td class="paramname"><em>_spline_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Parses <code>json</code> and stores the result in <code>_spline_</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">json</td><td>The JSON string to parse. </td></tr>
+    <tr><td class="paramname">&lt;em&gt;spline&lt;/em&gt;</td><td>The output parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>TS_SUCCESS On success. </dd>
+<dd>
+TS_PARSE_ERROR If an error occurred while parsing <code>json</code>. </dd>
+<dd>
+TS_DIM_ZERO If the dimension is 0. </dd>
+<dd>
+TS_LCTRLP_DIM_MISMATCH If the length of the control point vector modulo dimension is not 0. </dd>
+<dd>
+TS_DEG_GE_NCTRLP If the degree is greater or equals to the number of control points. </dd>
+<dd>
+TS_NUM_KNOTS If the number of knots stored in <code>json</code> does not match to the number of control points and the degree of the spline. </dd>
+<dd>
+TS_KNOTS_DECR If the knot vector is decreasing. </dd>
+<dd>
+TS_MULTIPLICITY If there is a knot with multiplicity greater than order. </dd>
+<dd>
+TS_MALLOC If allocating memory failed. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a4c1c871b8fed7f04e630fd18691970f4"></a>
 <div class="memitem">
 <div class="memproto">
@@ -866,6 +927,59 @@ TS_MALLOC If allocating memory failed. </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The length of the control point array of <code>spline</code>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a0df50da2946f3d0f35e5eb29d4a982dd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a> ts_bspline_load_json </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structts_b_spline.html">tsBSpline</a> *&#160;</td>
+          <td class="paramname"><em>_spline_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loads the contents of <code>path</code> and stores the result in <code>_spline_</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Path of the JSON file. </td></tr>
+    <tr><td class="paramname">&lt;em&gt;spline&lt;/em&gt;</td><td>The output parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>TS_SUCCESS On success. </dd>
+<dd>
+TS_IO_ERROR If <code>path</code> does not exist. </dd>
+<dd>
+TS_PARSE_ERROR If an error occurred while parsing the contents of <code>path</code>. </dd>
+<dd>
+TS_DIM_ZERO If the dimension is 0. </dd>
+<dd>
+TS_LCTRLP_DIM_MISMATCH If the length of the control point vector modulo dimension is not 0. </dd>
+<dd>
+TS_DEG_GE_NCTRLP If the degree is greater or equals to the number of control points. </dd>
+<dd>
+TS_NUM_KNOTS If the number of knots stored in <code>json</code> does not match to the number of control points and the degree of the spline. </dd>
+<dd>
+TS_KNOTS_DECR If the knot vector is decreasing. </dd>
+<dd>
+TS_MULTIPLICITY If there is a knot with multiplicity greater than order. </dd>
+<dd>
+TS_MALLOC If allocating memory failed. </dd></dl>
 
 </div>
 </div>
@@ -1078,6 +1192,45 @@ TS_MALLOC If allocating memory failed. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>TS_SUCCESS On success. </dd>
 <dd>
 TS_DEG_GE_NCTRLP If the degree of <code>_resized_</code> would be &gt;= the number of control points of <code>_resized_</code>. </dd>
+<dd>
+TS_MALLOC If allocating memory failed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3509c0e1085738f158bac364bbe5b4fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a> ts_bspline_save_json </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structts_b_spline.html">tsBSpline</a> *&#160;</td>
+          <td class="paramname"><em>spline</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Saves <code>spline</code> as JSON ASCII file.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spline</td><td>The spline to save. </td></tr>
+    <tr><td class="paramname">path</td><td>Path of the JSON file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>TS_SUCCESS On success. </dd>
+<dd>
+TS_IO_ERROR If an error occurred while saving <code>spline</code>. </dd>
 <dd>
 TS_MALLOC If allocating memory failed. </dd></dl>
 
@@ -1401,6 +1554,43 @@ TS_MALLOC If allocating memory failed. </dd></dl>
   <table class="params">
     <tr><td class="paramname">spline</td><td>The spline to subdivide. </td></tr>
     <tr><td class="paramname">_beziers_</td><td>The output parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>TS_SUCCESS On success. </dd>
+<dd>
+TS_MALLOC If allocating memory failed. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac66c6815cf6a996f22cecbd5c69dc977"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="tinyspline_8h.html#a565ff3761d90530714283629d1850e9a">tsError</a> ts_bspline_to_json </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structts_b_spline.html">tsBSpline</a> *&#160;</td>
+          <td class="paramname"><em>spline</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>_json_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Serializes <code>spline</code> to a null-terminated JSON string and stores the result in <code>_json_</code>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spline</td><td>The spline to serialize. </td></tr>
+    <tr><td class="paramname">json</td><td>The output parameter. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1960,7 +2150,7 @@ TS_MALLOC If allocating memory failed. </dd></dl>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>This project is maintained by <a href="https://github.com/msteinbeck">Marcel Steinbeck</a>.<br />
 &copy; 2014-2017 - TinySpline is released under the terms of the MIT license.<br />
-Generated on Thu Aug 2 2018 09:07:46 for TinySpline by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 6 2018 13:41:40 for TinySpline by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.11<br />
 Library logo and Doxygen theme custom created by <a href="https://www.nightwave.co">Nightwave Studios</a>.

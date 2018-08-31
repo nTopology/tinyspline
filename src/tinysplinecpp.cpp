@@ -213,6 +213,7 @@ tinyspline::DeBoorNet tinyspline::BSpline::eval(tinyspline::real u) const
 	return deBoorNet;
 }
 
+#if 0
 std::string tinyspline::BSpline::toJSON()
 {
 	char *json;
@@ -250,6 +251,7 @@ void tinyspline::BSpline::load(std::string path)
 	ts_bspline_free(&spline);
 	ts_bspline_move(&s, &spline);
 }
+#endif
 
 void tinyspline::BSpline::setControlPoints(
 	const std::vector<tinyspline::real> &ctrlp)

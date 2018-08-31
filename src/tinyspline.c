@@ -1353,6 +1353,7 @@ tsError ts_bspline_to_beziers(const tsBSpline *spline, tsBSpline *_beziers_)
 * :: Serialization and Persistence Functions                                  *
 *                                                                             *
 ******************************************************************************/
+#if 0
 JSON_Value * ts_internal_bspline_to_json(const tsBSpline * spline, jmp_buf buf)
 {
 	const size_t deg = ts_bspline_degree(spline);
@@ -1633,7 +1634,7 @@ tsError ts_bspline_load_json(const char *path, tsBSpline *_spline_)
 	return err;
 }
 
-
+#endif
 
 /******************************************************************************
 *                                                                             *

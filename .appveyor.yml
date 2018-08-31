@@ -10,7 +10,7 @@ install:
   - ps: refreshenv
 
 before_build:
-  - cmake -G "Visual Studio 14 2015 Win64" -DTINYSPLINE_DISABLE_PYTHON=TRUE .
+  - cmake -G "Visual Studio 14 2015 Win64" -DCMAKE_BUILD_TYPE=Release -DTINYSPLINE_DISABLE_PYTHON=TRUE .
 
 build:
   project: tinyspline.sln

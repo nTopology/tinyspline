@@ -858,6 +858,13 @@ void ts_internal_bspline_derive(const tsBSpline *spline, size_t n,
 	size_t num_ctrlp = ts_bspline_num_control_points(spline);
 	size_t num_knots = ts_bspline_num_knots(spline);
 
+	/* This is required to avoid GCC's -Werror=clobbered warning, see:
+	 * https://github.com/msteinbeck/tinyspline/issues/119
+	 */
+	const size_t *deg_clobbered = &deg;
+	const size_t *num_ctrlp_clobbered = &num_ctrlp;
+	const size_t *num_knots_clobbered = &num_knots;
+
 	tsBSpline worker; /**< Stores intermediate results. */
 	tsReal* ctrlp;    /**< Pointer to the control points of worker. */
 	tsReal* knots;    /**< Pointer to the knots of worker. */
@@ -899,15 +906,16 @@ void ts_internal_bspline_derive(const tsBSpline *spline, size_t n,
 	}
 
 	TRY(b, err)
-		ts_internal_bspline_new(num_ctrlp, dim, deg, TS_NONE, &swap, b);
+		ts_internal_bspline_new(*num_ctrlp_clobbered, dim,
+			*deg_clobbered, TS_NONE, &swap, b);
 	CATCH
 		ts_bspline_free(&worker);
 		longjmp(buf, err);
 	ETRY
 	memcpy(ts_internal_bspline_access_ctrlp(&swap), ctrlp,
-	       num_ctrlp * dim * sof_real);
+		*num_ctrlp_clobbered * dim * sof_real);
 	memcpy(ts_internal_bspline_access_knots(&swap), knots,
-	       num_knots * sof_real);
+		*num_knots_clobbered * sof_real);
 	ts_bspline_free(&worker);
 	if (spline == _derivative_)
 		ts_bspline_free(_derivative_);
@@ -1580,14 +1588,13 @@ tsError ts_bspline_from_json(const char *json, tsBSpline *_spline_)
 	jmp_buf buf;
 	JSON_Value *value = NULL;
 	ts_internal_bspline_init(_spline_);
+	value = json_parse_string(json);
+	if (!value)
+		return TS_PARSE_ERROR;
 	TRY(buf, err)
-		value = json_parse_string(json);
-		if (!value)
-			longjmp(buf, TS_PARSE_ERROR);
 		ts_internal_bspline_from_json(value, _spline_, buf);
 	ETRY
-	if (value)
-		json_value_free(value);
+	json_value_free(value);
 	return err;
 }
 
